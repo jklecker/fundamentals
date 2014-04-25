@@ -10,8 +10,8 @@ DeviseExample::Application.routes.draw do
       get 'user_providers' => 'user_providers#index'
       post 'user_providers' => 'user_providers#create'
       post 'create_providers'=> 'create_providers#create'    
+    end
   end
-
   devise_for :users, :admins
 
   get '/token' => 'home#token', as: :token

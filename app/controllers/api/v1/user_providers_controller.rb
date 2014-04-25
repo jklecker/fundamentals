@@ -3,7 +3,7 @@ class Api::V1::UserProvidersController < ApplicationController
                      :if => Proc.new { |c| c.request.format == 'application/json' }
 
   # Just skip the authentication for now
-   before_filter :authenticate_user!
+  # before_filter :authenticate_user!
 
   respond_to :json
 
@@ -21,5 +21,13 @@ class Api::V1::UserProvidersController < ApplicationController
                                }
                     }
   end
+def create
 
+    new_provider = Provider.create!(:user_id => current_user.id, :name => provider_name )
+    render :status => 200,
+           :json => { :success => true,
+                      :info => "Provider Created",
+             :data => { :name => provider_name  }
+                    }
+  end
 end

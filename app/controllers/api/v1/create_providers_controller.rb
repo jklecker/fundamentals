@@ -13,7 +13,7 @@ def create
     render :status => 200,
            :json => { :success => true,
                       :info => "Provider Created",
-             :data => { :name => new_provider  }
+             :data => { :name => new_provider.name  }
                     }
   end
   

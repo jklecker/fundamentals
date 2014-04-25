@@ -13,7 +13,7 @@ def create
     render :status => 200,
            :json => { :success => true,
                       :info => "Subscription Created",
-             :data => { :id=> new_subscription }
+             :data => { :id=> new_subscription.id }
                     }
   end
   

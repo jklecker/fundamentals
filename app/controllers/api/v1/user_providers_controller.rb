@@ -23,11 +23,11 @@ class Api::V1::UserProvidersController < ApplicationController
   end
 def create
 
-    new_provider = Provider.create!(:user_id => current_user.id, :name => provider_name )
+  new_provider = Provider.create!(:name => params[:provider][:name])
     render :status => 200,
            :json => { :success => true,
                       :info => "Provider Created",
-             :data => { :name => provider_name  }
+             :data => { :name => new_provider.name  }
                     }
   end
 end

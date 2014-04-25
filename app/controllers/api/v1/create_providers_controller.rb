@@ -9,7 +9,7 @@ class Api::V1::CreateProvidersController < ApplicationController
   
 def create
 
-  new_provider = Provider.create!(:name => t.name)
+  new_provider = Provider.create!(:name => provider.name)
     render :status => 200,
            :json => { :success => true,
                       :info => "Provider Created",

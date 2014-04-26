@@ -1,4 +1,4 @@
-class Api::V1::ContentElementController < ApplicationController
+class Api::V1::GetProviderContentElements < ApplicationController
   skip_before_filter :verify_authenticity_token,
                      :if => Proc.new { |c| c.request.format == 'application/json' }
 
@@ -8,7 +8,6 @@ class Api::V1::ContentElementController < ApplicationController
   respond_to :json
   
 def create
-
   provider_content_elements = ContentElement.where(:provider_id => params[:provider_id])
     render :status => 200,
            :json => { :success => true,

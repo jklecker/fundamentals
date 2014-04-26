@@ -14,7 +14,7 @@ class Api::V1::ContentAreaController < ApplicationController
              :data => { "content_areas" => content_areas }
                     }
   end
-  rail
+
   def create
 
     new_content_area = Content_Area.create!(:name => params[:name])

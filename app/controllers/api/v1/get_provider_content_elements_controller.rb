@@ -13,7 +13,7 @@ def create
            :json => { :success => true,
              :info => "Content Element ",
              :data => { 
-               "Content_Elements" => provider_content_elements}
+               "content_elements" => provider_content_elements}
                     }
   end
 end

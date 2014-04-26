@@ -8,6 +8,9 @@ class Api::V1::ContentItemController < ApplicationController
   respond_to :json
   def index 
     content_areas = ContentElement.all
+    provider_content_elements = ContentElement.where(:id => 1).pluck(:provider_id)
+      
+    
       render :status => 200,
            :json => { :success => true,
              :info => "Content Element",
@@ -22,7 +25,8 @@ class Api::V1::ContentItemController < ApplicationController
            :json => { :success => true,
              :info => "Content Element  Created",
              :data => { :name => new_content_element.name,
-                        :url_link => new_content_element.url_link}
+                        :url_link => new_content_element.url_link,
+                        :provider_id => new_content_elemenet.provider_id
                     }
   end
 end

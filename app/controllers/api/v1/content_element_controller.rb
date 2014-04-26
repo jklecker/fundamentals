@@ -26,7 +26,7 @@ class Api::V1::ContentItemController < ApplicationController
              :info => "Content Element  Created",
              :data => { :name => new_content_element.name,
                         :url_link => new_content_element.url_link,
-                        :provider_id => new_content_elemenet.provider_id
+               :provider_id => new_content_elemenet.provider_id}
                     }
   end
 end

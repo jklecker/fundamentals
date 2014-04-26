@@ -1,6 +1,6 @@
 class CreateFormats < ActiveRecord::Migration
   def change
-    create_table :format do |t|
+    create_table :formats do |t|
     t.string :name
     end
   end

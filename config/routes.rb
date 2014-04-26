@@ -12,7 +12,9 @@ DeviseExample::Application.routes.draw do
       post 'create_providers'=> 'create_providers#create' 
       post 'subscribe_to' => 'subscribe_to#create'
       post 'content_area' => 'content_area#create'
-      get 'content_area' => 'content_area#index'
+      get 'content_area' => 'content_area#index'    
+      post 'content_element' => 'content_element#create'
+      get 'content_element' => 'content_element#index'
     end
   end
   devise_for :users, :admins

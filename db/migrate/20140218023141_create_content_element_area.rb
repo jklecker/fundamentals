@@ -1,4 +1,4 @@
-class CreateContentElement < ActiveRecord::Migration
+class CreateContentElementArea < ActiveRecord::Migration
   def change
     create_table :content_elements do |t|
       t.reference :provider

@@ -14,7 +14,9 @@ DeviseExample::Application.routes.draw do
       post 'content_area' => 'content_area#create'
       get 'content_area' => 'content_area#index'    
       post 'content_element' => 'content_element#create'
-      get 'content_element' => 'content_element#index'
+      get 'format' => 'format#index'
+      post 'format'=> 'format#create'
+      post 'get_provider_content_elements' => 'get_provider_content_elements#create'
     end
   end
   devise_for :users, :admins

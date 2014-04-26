@@ -10,8 +10,8 @@ class Api::V1::ContentAreaController < ApplicationController
     content_areas = ContentArea.all
       render :status => 200,
            :json => { :success => true,
-             :info => "Content  Area",
-             :data => { :name => content_areas }
+             :info => "Content Area",
+             :data => { "content_areas" => content_areas }
                     }
   end
   

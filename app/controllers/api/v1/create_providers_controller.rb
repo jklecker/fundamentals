@@ -13,8 +13,8 @@ def create
     render :status => 200,
            :json => { :success => true,
                       :info => "Provider Created",
-             :data => { :name => new_provider ,
-                        :content_area_id => }
+             :data => { :name => new_provider,
+                        :content_area_id => new_provider.conent_area_id}
                     }
   end
   

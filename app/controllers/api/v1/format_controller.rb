@@ -8,7 +8,7 @@ class Api::V1::FormatController < ApplicationController
   respond_to :json
   def create
 
-    new_format  = CreateFormats.create!(:name => params[:name])
+    new_format  = Format.create!(:name => params[:name])
     render :status => 200,
            :json => { :success => true,
                       :info => "Format Created",

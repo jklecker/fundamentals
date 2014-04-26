@@ -5,4 +5,5 @@ class CreateContentElement < ActiveRecord::Migration
       t.string :name
       t.string :url_link
   end
+  end
 end

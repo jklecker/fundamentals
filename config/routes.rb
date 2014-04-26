@@ -11,6 +11,8 @@ DeviseExample::Application.routes.draw do
       post 'user_providers' => 'user_providers#create'
       post 'create_providers'=> 'create_providers#create' 
       post 'subscribe_to' => 'subscribe_to#create'
+      post 'content_area' => 'content_area#create'
+      get 'content_area' =>' content_area#index'
     end
   end
   devise_for :users, :admins

@@ -14,7 +14,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
                       :info => "Registered",
                       :data => { :user => resource,
                                  :auth_token => current_user.authentication_token,
-                                 :user_type => current_user.type
+                        :user_type => current_user.user_type
                         } 
              }
     else
@@ -26,7 +26,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
   end
 
   def sign_up_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :type)
+    params.require(:user).permit(:email, :password, :password_confirmation, :user_type)
   end
 
 end

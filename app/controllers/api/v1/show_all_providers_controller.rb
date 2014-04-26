@@ -20,3 +20,4 @@ class Api::V1::ShowAllProvidersController < ApplicationController
                                }
                     }
   end
+end

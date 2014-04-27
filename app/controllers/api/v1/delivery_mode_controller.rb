@@ -25,7 +25,7 @@ class Api::V1::DeliveryModeController < ApplicationController
     render :status => 200,
            :json => { :success => true,
              :info => "Content Created",
-             :data => { :name => new_delivery_mode  }
+             :data => { :name => new_delivery_mode.name  }
                     }
   end
   

@@ -15,7 +15,7 @@ class Api::V1::SubscriptionTypeController < ApplicationController
                         :info => "Subcription Created",
                         :data => {
                         :name => new_subscription_type.name,
-                          :provider_id => new_subscription_type.provider.id,
+                          :provider_id => new_subscription_type.provider_id,
                           :subscrition_length => new_subscription_type.subscription_length
                                }
                     }

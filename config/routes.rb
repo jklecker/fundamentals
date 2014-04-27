@@ -18,6 +18,7 @@ DeviseExample::Application.routes.draw do
       post 'format'=> 'format#create'
       post 'get_provider_content_elements' => 'get_provider_content_elements#create'
       get 'show_all_providers' => 'show_all_providers#index'
+      post 'subscription_type' => 'subscription_type#create'
     end
   end
   devise_for :users, :admins

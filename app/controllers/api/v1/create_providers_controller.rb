@@ -14,7 +14,7 @@ def create
            :json => { :success => true,
                       :info => "Provider Created",
              :data => { :name => new_provider.name,
-                        :content_area_id => new_provider.conent_area_id}
+                        :content_area_id => new_provider}
                     }
   end
   

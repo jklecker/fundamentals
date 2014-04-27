@@ -14,7 +14,15 @@ class Api::V1::ContentAreaController < ApplicationController
              :data => { "content_areas" => content_areas }
                     }
   end
+ def create
 
+    new_content_area = ContentArea.create!(:name => params[:name])
+    render :status => 200,
+           :json => { :success => true,
+             :info => "Content Area Created",
+             :data => { :name => new_content_area  }
+                    }
+  end
  def destroy
     
     content = ContentArea.find(params[:id])

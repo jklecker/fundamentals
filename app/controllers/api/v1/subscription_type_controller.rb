@@ -8,12 +8,14 @@ class Api::V1::SubscriptionTypeController < ApplicationController
   respond_to :json
 
   def create
-    new_subscription_type = ContentElement.create!(:provider_id => params[:provider_id], :name => params[:name])
+    new_subscription_type = SubscriptionType.create!(:provider_id => params[:provider_id], :name => params[:name], :subscription_id => params[:subscription_id])
 
 	render :status => 200,
            :json => {   :success  => true,
                         :info => "Subcription Created",
                         :data => {
+                          :name => new_subription_type.name,
+                          :provider_type => new_subription_type.provider.id
                                }
                     }
   end

@@ -16,7 +16,7 @@ class Api::V1::SubscriptionTypeController < ApplicationController
                         :data => {
                         :name => new_subription_type.name,
                           :provider_id => new_subription_type.provider.id,
-                          :subscrition_type => new_subription_type.subscription_length
+                          :subscrition_length => new_subription_type.subscription_length
                                }
                     }
   end

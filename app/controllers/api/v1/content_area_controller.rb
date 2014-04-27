@@ -22,7 +22,7 @@ class Api::V1::ContentAreaController < ApplicationController
     #delivery.destroy
     
    if providers_content.nil?
-      #content.destroy
+      content.destroy
       render :status => 200,
            :json => { :success => true,
              :info => "Delivery Mode Deleted",

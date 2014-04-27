@@ -9,7 +9,7 @@ class Api::V1::SubscribeToController < ApplicationController
   
 def create
 
-  new_subscription  = SubscribedTo.create!(:user_id => params[:user_id], :provider_id => params[:provider_id])
+  new_subscription  = SubscribedTo.create!(:user_id => current_user.id, :provider_id => params[:provider_id])
     render :status => 200,
            :json => { :success => true,
                       :info => "Subscription Created",

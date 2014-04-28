@@ -8,7 +8,8 @@ class Api::V1::SearchProvidersController < ApplicationController
   respond_to :json
 
   def create
-    providers = ProviderSearch.search params[:search]
+    search_condition = "%" + params[:search] + "%"
+    providers = Provider.where('name ILIKE ?', search_condition)
 
     render :status => 200,
       :json => { 

@@ -1,4 +1,4 @@
-class Api::V1::SubscribeToController < ApplicationController
+class Api::V1::GetProviderSubscriptionsController < ApplicationController
   skip_before_filter :verify_authenticity_token,
                      :if => Proc.new { |c| c.request.format == 'application/json' }
 
@@ -8,13 +8,12 @@ class Api::V1::SubscribeToController < ApplicationController
   respond_to :json
   
 def create
-
-  new_subscription  = SubscribedTo.create!(:user_id => current_user.id, :provider_id => params[:provider_id], :subscription_id => params[:subscription_id])
+  provider_subscriptions = SubscriptionType.where(:provider_id => params[:provider_id])
     render :status => 200,
            :json => { :success => true,
-                      :info => "Subscription Created",
-             :data => { :id=> new_subscription.id }
+             :info => "Prvider Subscriptions",
+             :data => { 
+               "provider subscriptions" => provider_subscriptions}
                     }
   end
-  
 end

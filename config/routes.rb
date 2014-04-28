@@ -35,6 +35,7 @@ DeviseExample::Application.routes.draw do
       get 'delivery_mode' => 'delivery_mode#index'
       put 'delivery_mode' => 'delivery_mode#destroy'
       
+      post 'search_providers' => 'search_providers#create'
     end
   end
   devise_for :users, :admins

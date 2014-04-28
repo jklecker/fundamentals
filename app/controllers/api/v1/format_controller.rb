@@ -33,8 +33,8 @@ class Api::V1::FormatController < ApplicationController
   
   def destroy
     
-    content = Format.find(params[:id])
-    content_element = ContentElement.find_by_format_id(content.id)
+    content = Format.find(params[:name])
+    content_element = ContentElement.find_by_format_type(content.name)
     
     
     if content_element.nil?

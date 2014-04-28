@@ -33,12 +33,12 @@ class Api::V1::FormatController < ApplicationController
   
   def destroy
     
-    content = Format.find(params[:name])
-    content_element = ContentElement.find_by_format_type(content.name)
+    content = Format.find(params[:id])
+    content_element = ContentElement.find_by_format_id(content.id)
     
     
     if content_element.nil?
-      #content.destroy
+      content.destroy
       render :status => 200,
              :json => { :success => true,
                         :info => "Content Element Deleted",
@@ -50,7 +50,7 @@ class Api::V1::FormatController < ApplicationController
              :json => { :success => false,
                         :info => "Delete Failed Content Element Still Has Format",
                         :data => {"formats" => content,
-                                  "content elements" => providers_content} }
+                                  "content elements" => content_element} }
     end
   end
   

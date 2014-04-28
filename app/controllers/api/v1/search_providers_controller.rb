@@ -16,7 +16,7 @@ class Api::V1::SearchProvidersController < ApplicationController
       :json => { 
         :success => true,
         :info => "Search Results",
-        :data =>{:providers =>  providers.name }
+        :data =>{:providers =>  providers }
       }
   end
 end

@@ -27,7 +27,7 @@ class Api::V1::ContentAreaController < ApplicationController
     
     content = ContentArea.find(params[:id])
     providers_content = Provider.find_by_content_area_id(content.id)
-    #delivery.destroy
+   
     
    if providers_content.nil?
       content.destroy

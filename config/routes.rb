@@ -19,9 +19,11 @@ DeviseExample::Application.routes.draw do
       put 'content_area' => 'content_area#destroy'
       
       post 'content_element' => 'content_element#create'
+      put 'content_element' => 'content_element#destroy'
       
       get 'format' => 'format#index'
       post 'format'=> 'format#create'
+      put 'format' => 'format#destroy'
       
       post 'get_provider_content_elements' => 'get_provider_content_elements#create'
       get 'show_all_providers' => 'show_all_providers#index'

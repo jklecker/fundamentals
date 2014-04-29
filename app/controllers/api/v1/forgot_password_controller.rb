@@ -10,7 +10,7 @@ class Api::V1::ForgotPasswordController < ApplicationController
    check_email = User.where(:email => params[:email]
     
      if check_email != nil
-     user.send_reset_password_instructions
+     check_email.send_reset_password_instructions
        
        render :status => 200,
            :json => { :success => true,

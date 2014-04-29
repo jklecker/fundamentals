@@ -77,4 +77,17 @@ DeviseExample::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+  
+  config.action_mailer.default_url_options = ( :host => 'Fundamentals.herokuapp.com' )
+  
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  :authentication => :plain,
+  :address => "smtp.mailgun.org",
+  :port => 587,
+  :domain => "sandboxe1432f2424514d63a80e9fa00d0c5247.mailgun.org",
+  :user_name => "postmaster@sandboxe1432f2424514d63a80e9fa00d0c5247.mailgun.org",
+  :password => "8a0zqj69wzm6"
+}
+  
 end

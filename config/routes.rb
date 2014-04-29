@@ -36,6 +36,9 @@ DeviseExample::Application.routes.draw do
       put 'delivery_mode' => 'delivery_mode#destroy'
       
       post 'search_providers' => 'search_providers#create'
+      
+      post 'forgot_password' => 'forgot_password#create'
+      
     end
   end
   devise_for :users, :admins

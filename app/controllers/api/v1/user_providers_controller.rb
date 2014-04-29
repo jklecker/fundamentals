@@ -8,8 +8,7 @@ class Api::V1::UserProvidersController < ApplicationController
   respond_to :json
 
   def index
-     #   subscriptions = SubscribedTo.where(:user_id => current_user.id).pluck(:provider_id)
-     subscriptions = SubscribedTo.where(:user_id => 1).pluck(:provider_id)
+        subscriptions = SubscribedTo.where(:user_id => current_user.id).pluck(:provider_id)
         my_providers = Provider.where(:id => subscriptions) 
 
 	render :status => 200,

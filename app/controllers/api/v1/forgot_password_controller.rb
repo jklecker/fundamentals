@@ -22,6 +22,7 @@ class Api::V1::ForgotPasswordController < ApplicationController
              :json => { :success => false,
              :info => "Email Not Found",
              :data => { :email => check_email  }
+               }
                end
      end
 

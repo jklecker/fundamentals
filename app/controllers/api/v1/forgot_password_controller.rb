@@ -7,7 +7,7 @@ class Api::V1::ForgotPasswordController < ApplicationController
   
  def create
 
-   check_email = User.where(:email => params[:email]
+   check_email = User.where(:email => params[:email]).first
     
      if check_email != nil
      check_email.send_reset_password_instructions

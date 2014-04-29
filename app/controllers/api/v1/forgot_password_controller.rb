@@ -17,12 +17,12 @@ class Api::V1::ForgotPasswordController < ApplicationController
              :info => "Sending Email Instructions to Reset Password",
              :data => { :email => check_email  }
                     }
-  end
+     else
      render :status => 400,
              :json => { :success => false,
              :info => "Email Not Found",
              :data => { :email => check_email  }
-     
+               end
      end
 
 

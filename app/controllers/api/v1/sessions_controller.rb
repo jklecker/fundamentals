@@ -24,7 +24,7 @@ class Api::V1::SessionsController < Devise::SessionsController
   end
   
    def index
-     user = User.where(:user_id => 1)
+     user = User.where(:id => 1)
 
 	render :status => 200,
            :json => { :success => true,

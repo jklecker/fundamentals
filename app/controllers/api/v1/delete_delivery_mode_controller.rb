@@ -11,7 +11,7 @@ class Api::V1::DeleteDeliveryModeController < ApplicationController
   def destroy
     
     delivery = DeliveryMode.find(params[:id])
-    providers_delivery = Provider.find_by_delivery_mode_id(delivery.id)
+    providers_delivery = Provider.find_by_contentd_delivery_id(delivery.id)
     #delivery.destroy
     
     if providers_delivery.nil?

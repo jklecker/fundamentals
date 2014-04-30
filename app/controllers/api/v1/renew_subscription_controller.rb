@@ -1,4 +1,4 @@
-lass Api::V1:RenewSubscriptionController < ApplicationController
+class Api::V1::RenewSubscriptionController < ApplicationController
   skip_before_filter :verify_authenticity_token,
                      :if => Proc.new { |c| c.request.format == 'application/json' }
 
@@ -7,7 +7,20 @@ lass Api::V1:RenewSubscriptionController < ApplicationController
 
   respond_to :json
   
- 
+ def index
+            
+        subscriptions = EndedSubscription.where(:user_id => current_user.id).pluck(:provider_id)
+        #subscriptions = SubscribedTo.where(:user_id => 1).pluck(:provider_id)
+        my_providers = Provider.where(:id => subscriptions) 
+        #my_providers = Provider.all
+
+    
+        render :status => 200,
+                 :json => { :success => true,
+                            :info => "My Subscriptions",
+                            :data => {"providers" => my_providers}
+                          }
+        end
 
   def create
 

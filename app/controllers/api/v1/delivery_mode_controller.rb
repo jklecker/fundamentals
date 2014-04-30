@@ -21,7 +21,7 @@ class Api::V1::DeliveryModeController < ApplicationController
  
   def create
 
-    new_delivery_mode = DeliveryMode.create!(:name => params[:name])
+    new_delivery_mode = DeliveryMode.create!(:name => params[:name], :hidden => 0)
     render :status => 200,
            :json => { :success => true,
              :info => "Delivery Mode Created",
@@ -49,10 +49,32 @@ class Api::V1::DeliveryModeController < ApplicationController
              :info => "Delete Failed Provider Still Has Delivery Mode",
                       :data => {"names" => delivery,
                                 "providers" => providers_delivery} }
-    end
-  
-    
-    
+    end    
   end
+  
+  def update
+    delivery = DeliveryMode.find(params[:id])
+
+    if delivery.hidden == 0
+      delivery.update_column(:hidden, 1)
+      render :status => 200,
+           :json => { :success => true,
+             :info => "Delivery Mode Hidden",
+                      :data => {"delivery" => delivery} } 
+    elsif delivery.hidden.nil?
+      delivery.update_column(:hidden, 1)
+      render :status => 200,
+           :json => { :success => true,
+             :info => "Delivery Mode Hidden",
+                      :data => {"delivery" => delivery} } 
+    else
+      delivery.update_column(:hidden, 0)
+      render :status => 200,
+           :json => { :success => true,
+             :info => "Delivery Mode Unhidden",
+                      :data => {"delivery" => delivery} } 
+    end 
+  end
+  
   
 end

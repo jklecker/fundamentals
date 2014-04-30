@@ -23,7 +23,7 @@ class Api::V1::FormatController < ApplicationController
   
   def create
 
-    new_format  = Format.create!(:name => params[:name])
+    new_format  = Format.create!(:name => params[:name], :hidden => 0)
     render :status => 200,
            :json => { :success => true,
                       :info => "Format Created",
@@ -52,6 +52,30 @@ class Api::V1::FormatController < ApplicationController
                         :data => {"formats" => content,
                                   "content elements" => content_element} }
     end
+  end
+  
+  def update
+    format = Format.find(params[:id])
+
+    if format.hidden == 0
+      format.update_column(:hidden, 1)
+      render :status => 200,
+           :json => { :success => true,
+             :info => "Format Hidden",
+                      :data => {"formats" => format} } 
+    elsif format.hidden.nil?
+      format.update_column(:hidden, 1)
+      render :status => 200,
+           :json => { :success => true,
+             :info => "Format Hidden",
+                      :data => {"formats" => format} } 
+    else
+      format.update_column(:hidden, 0)
+      render :status => 200,
+           :json => { :success => true,
+             :info => "Format Unhidden",
+                      :data => {"formats" => format} } 
+    end 
   end
   
 end

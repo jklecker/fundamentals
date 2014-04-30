@@ -40,10 +40,34 @@ class Api::V1::ContentAreaController < ApplicationController
     else 
       render :status => 403,
            :json => { :success => false,
-             :info => "Delete Failed Provider Still Has Content Area",
+             :info => "Delete Failed Because Provider Still Has Content Area",
                       :data => {"names" => content,
                                 "providers" => providers_content} }
     end
+  end
+
+   def update
+     content_hide = ContentArea.find(params[:id])
+
+    if content_hide.hidden == 0
+      content_hide.update_column(:hidden, 1)
+      render :status => 200,
+           :json => { :success => true,
+             :info => "Content Area Hidden",
+                      :data => {"content" => content_hide} } 
+    elsif content_hide.hidden.nil?
+      content_hide.update_column(:hidden, 1)
+      render :status => 200,
+           :json => { :success => true,
+             :info => "Content Area Hidden",
+                      :data => {"content" => content_hide} } 
+    else
+      content_hide.update_column(:hidden, 0)
+      render :status => 200,
+           :json => { :success => true,
+             :info => "Content Area Unhidden",
+                      :data => {"content" => content_hide} } 
+    end 
   end
   
 end

@@ -8,9 +8,6 @@ class Api::V1::FormatController < ApplicationController
   respond_to :json
   
    def index
-        #subscriptions = SubscribedTo.where(:user_id => current_user.id).pluck(:provider_id)
-        #subscriptions = SubscribedTo.where(:user_id => 1).pluck(:provider_id)
-        #my_providers = Provider.where(:id => subscriptions) 
         my_formats = Format.all
     
         render :status => 200,

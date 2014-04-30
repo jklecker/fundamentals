@@ -22,20 +22,7 @@ class Api::V1::SessionsController < Devise::SessionsController
                       :info => "Logged out",
                       :data => {} }
   end
-  
-   def index
-     user = User.where(:id => 14)
 
-	render :status => 200,
-           :json => { :success => true,
-             :info => "My User info",
-                      :data => {
-                        :name => user.name,
-                        #:email => user.email,
-                        #:id => user.id 
-                        }
-                    }  
-             end
 
   def failure
     render :status => 401,

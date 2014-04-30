@@ -30,7 +30,9 @@ class Api::V1::SessionsController < Devise::SessionsController
            :json => { :success => true,
              :info => "My User info",
                       :data => {
-                        "Info" => user }
+                        :name => user.name,
+                        :email => user.email,
+                        :id => user.id }
                     }  end
 
   def failure

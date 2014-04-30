@@ -14,21 +14,24 @@ DeviseExample::Application.routes.draw do
       get 'show_all_providers' => 'show_all_providers#index'
       
       post 'subscribe_to' => 'subscribe_to#create'
-      delete 'subscribe_to' => 'subscribe_to#destroy'
+      put 'subscribe_to' => 'subscribe_to#destroy'
       
       post 'content_area' => 'content_area#create'
-      get 'content_area' => 'content_area#index'  
-      delete 'content_area' => 'content_area#destroy'
+      get 'content_area' => 'content_area#index'   
       put 'content_area' => 'content_area#update'
+       
+      put 'delete_content_area' => 'delete_content_area#destroy'
       
       post 'content_element' => 'content_element#create'
-      delete 'content_element' => 'content_element#destroy'
       put 'content_element' => 'content_element#update'
+      
+      put 'delete_content_element' => 'delete_content_element#destroy'
       
       get 'format' => 'format#index'
       post 'format'=> 'format#create'
-      delete 'format' => 'format#destroy'
       put 'format'=> 'format#index'
+      
+      put 'delete_format' => 'delete_format#destroy'
       
       post 'get_provider_content_elements' => 'get_provider_content_elements#create'
       put 'get_provider_content_elements' => 'get_provider_content_elements#index'
@@ -36,13 +39,15 @@ DeviseExample::Application.routes.draw do
       post 'get_provider_subscriptions' => 'get_provider_subscriptions#create'
       
       post 'subscription_type' => 'subscription_type#create'
-      delete 'subscription_type' => 'subscription_type#destroy'
       put 'subscription_type' => 'subscription_type#update'
+      
+      put 'delete_subscription_type' => 'delete_subscription_type#destroy'
       
       post 'delivery_mode' => 'delivery_mode#create'
       get 'delivery_mode' => 'delivery_mode#index'
-      delete 'delivery_mode' => 'delivery_mode#destroy'
       put 'delivery_mode' => 'delivery_mode#update'
+      
+      put 'delete_delivery_mode' => 'delete_delivery_mode#destroy'
       
       post 'search_providers' => 'search_providers#create'
       

@@ -23,28 +23,6 @@ class Api::V1::ContentAreaController < ApplicationController
              :data => { :name => new_content_area  }
                     }
   end
- def destroy
-    
-    content = ContentArea.find(params[:id])
-    providers_content = Provider.find_by_content_area_id(content.id)
-   
-    
-   if providers_content.nil?
-      content.destroy
-      render :status => 200,
-           :json => { :success => true,
-             :info => "Delivery Mode Deleted",
-             :data => { "names" => content,
-                        "providers" => providers_content}
-                    }
-    else 
-      render :status => 403,
-           :json => { :success => false,
-             :info => "Delete Failed Because Provider Still Has Content Area",
-                      :data => {"names" => content,
-                                "providers" => providers_content} }
-    end
-  end
 
    def update
      content_hide = ContentArea.find(params[:id])

@@ -19,19 +19,7 @@ class Api::V1::ContentElementController < ApplicationController
                     }
   end
   
-  def destroy
-    
-    content = ContentElement.find(params[:id])
-    #providers_content = Provider.find_by_content_area_id(content.id)
-
-      content.destroy
-      render :status => 200,
-           :json => { :success => true,
-             :info => "Content Element Deleted",
-             :data => { "names" => content}
-                    }
-
-  end
+  
 
   def update
     content = ContentElement.find(params[:id])

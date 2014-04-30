@@ -32,8 +32,10 @@ class Api::V1::SessionsController < Devise::SessionsController
                       :data => {
                         :name => user.name,
                         #:email => user.email,
-                        #:id => user.id }
-                    }  end
+                        #:id => user.id 
+                        }
+                    }  
+             end
 
   def failure
     render :status => 401,

@@ -39,7 +39,7 @@ DeviseExample::Application.routes.draw do
       
       post 'get_provider_subscriptions' => 'get_provider_subscriptions#create'
       
-      post 'get_provider_subscription_type' => 'get_provider_subscription_type#create'
+      post 'get_provider_subscription_types' => 'get_provider_subscription_types#create'
       
       post 'subscription_type' => 'subscription_type#create'
       put 'subscription_type' => 'subscription_type#update'

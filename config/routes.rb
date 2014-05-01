@@ -30,12 +30,12 @@ DeviseExample::Application.routes.draw do
       
       get 'format' => 'format#index'
       post 'format'=> 'format#create'
-      put 'format'=> 'format#index'
+      put 'format'=> 'format#update'
       
       put 'delete_format' => 'delete_format#destroy'
       
       post 'get_provider_content_elements' => 'get_provider_content_elements#create'
-      put 'get_provider_content_elements' => 'get_provider_content_elements#index'
+      put 'get_provider_content_elements' => 'get_provider_content_elements#update'
       
       post 'get_provider_subscriptions' => 'get_provider_subscriptions#create'
       

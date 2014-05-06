@@ -46,7 +46,7 @@ class Api::V1::RenewSubscriptionController < ApplicationController
     #new_subscription = SubscribedTo.create!(:user_id => params[:user_id], :provider_id => params[:provider_id], :subscription_id => params[:subscription_id], :subscription_type => params[:subscription_type], :end_date_time => end_date, :end_date => end_date)
     
     
-    subscription = EndedSubscription.find(params[:old_id])#this is the old id of the subscription
+    subscription = EndSubscription.find(params[:old_id])#this is the old id of the subscription
     if subscription.nil?
     else
       subscription.destroy

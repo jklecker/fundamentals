@@ -17,6 +17,8 @@ DeviseExample::Application.routes.draw do
       post 'subscribe_to' => 'subscribe_to#create'
       put 'subscribe_to' => 'subscribe_to#destroy'
       
+      put 'hide_subscribe_to' => 'hide_subscribe_to#update'
+      
       post 'content_area' => 'content_area#create'
       get 'content_area' => 'content_area#index'   
       put 'content_area' => 'content_area#update'

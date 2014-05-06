@@ -9,7 +9,7 @@ class Api::V1::RenewSubscriptionController < ApplicationController
   
  def index
             
-        subscriptions = EndedSubscriptions.where(:user_id => current_user.id).pluck(:provider_id)
+        subscriptions = EndedSubscription.where(:user_id => current_user.id).pluck(:provider_id)
         #subscriptions = SubscribedTo.where(:user_id => 1).pluck(:provider_id)
         my_providers = Provider.where(:id => subscriptions) 
         #my_providers = Provider.all

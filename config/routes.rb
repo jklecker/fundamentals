@@ -59,7 +59,7 @@ DeviseExample::Application.routes.draw do
       post 'forgot_password' => 'forgot_password#create'
 
       get 'renew_subscription' => 'renew_subscription#index'#returns all user providers
-
+      post 'renew_subscription' => 'renew_subscription#create'
     end
   end
   devise_for :users, :admins

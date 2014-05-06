@@ -3,7 +3,7 @@ class Api::V1::SubscribeToController < ApplicationController
                      :if => Proc.new { |c| c.request.format == 'application/json' }
 
   # Just skip the authentication for now
-  # before_filter :authenticate_user!
+   before_filter :authenticate_user!
 
   respond_to :json
   
@@ -40,7 +40,9 @@ def create
   
   def destroy
     
-    subscription = SubscribedTo.find(params[:id])
+    #subscription = SubscribedTo.find(params[:id])
+    subscriptions = SubscribedTo.where(:user_id => current_user.id)
+    subscription = subscriptions.find_by_provider_id(params[:provider_id])
     #providers_content = Provider.find_by_content_area_id(content.id)
 
       subscription.destroy

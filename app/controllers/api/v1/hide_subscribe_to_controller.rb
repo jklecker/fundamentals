@@ -10,8 +10,9 @@ class Api::V1::SubscribeToController < ApplicationController
   
   
   def update
-    subscription_type = SubscribedTo.find(params[:id])
-
+    #subscription_type = SubscribedTo.find(params[:id])
+    subscriptions = SubscribedTo.where(:user_id => current_user.id)
+    subscription_type = subscriptions.find_by_provider_id(params[:provider_id])
     if subscription_type.hidden == 0
       subscription_type.update_column(:hidden, 1)
       render :status => 200,
